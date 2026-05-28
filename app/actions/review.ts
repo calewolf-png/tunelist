@@ -62,7 +62,7 @@ interface ReviewResult {
 async function callClaudeReview(standard: Standard, reVerify = false): Promise<ReviewResult | { error: string }> {
   try {
     const msg = await anthropic.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-sonnet-4-6',
       max_tokens: 512,
       system: reVerify ? REVIEW_SYSTEM_REVERIFY : REVIEW_SYSTEM,
       messages: [{ role: 'user', content: formatTuneForReview(standard) }],
@@ -292,7 +292,7 @@ export async function submitAmendment(
 
   try {
     const msg = await anthropic.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-sonnet-4-6',
       max_tokens: 256,
       system: AMENDMENT_REVIEW_SYSTEM,
       messages: [{ role: 'user', content: formatAmendmentForReview(standard, proposedChanges) }],
@@ -380,7 +380,7 @@ export async function submitVariantProposal(variantStandardId: string): Promise<
 
   try {
     const msg = await anthropic.messages.create({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-sonnet-4-6',
       max_tokens: 256,
       system: AMENDMENT_REVIEW_SYSTEM,
       messages: [{ role: 'user', content: formatAmendmentForReview(official, proposedChanges) }],
