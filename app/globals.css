@@ -2,7 +2,8 @@
 @source "../components/**/*.{ts,tsx}";
 @source "../app/**/*.{ts,tsx}";
 
-body {
+:root, html, body {
+  color-scheme: light only;
   background: #ffffff;
   color: #0f172a;
   -webkit-font-smoothing: antialiased;
